@@ -14,6 +14,9 @@ import (
 // the port on which to run the server
 //
 // NB: field names must start with Capital letter for JSON parse to work
+//
+// NB: Field names don't have to match JSON names... use third parameter
+//     to override default behavior
 type Config struct {
 	AppPort  string `json:"AppPort"`
 	FilePath string `json:"FilePath"`
@@ -32,7 +35,7 @@ func loadConfig(cfgFileName string) {
 	}
 	defer f.Close()
 
-	// Parse the file contents into the cfg object
+	// Parse the file contents into the cfg object, fail on error
 	jsonParser := json.NewDecoder(f)
 	if err = jsonParser.Decode(&cfg); err != nil {
 		log.Fatal(err)

@@ -1,4 +1,4 @@
-// When we get a request for a file ("/public/..."), this code will translate
+// When we receive a request for a file ("/public/..."), this code will translate
 // the request to the folder where the file is stored, and will then serve
 // the file
 package main
