@@ -20,6 +20,9 @@ func main() {
 	// set up a few routes
 	http.HandleFunc("/public/", handleFile)
 	http.HandleFunc("/data/", handleData)
+	http.HandleFunc("/erik", func(w http.ResponseWriter, r * http.Request) {
+		w.write([]byte("Hi Erik!"))
+		})
 
 	// print a diagnostic message and start the server
 	log.Println("Server running on port " + cfg.AppPort)
