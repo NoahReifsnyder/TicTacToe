@@ -21,7 +21,7 @@ func main() {
 	http.HandleFunc("/public/", handleFile)
 	http.HandleFunc("/data/", handleData)
 	http.HandleFunc("/erik", func(w http.ResponseWriter, r * http.Request) {
-		w.write([]byte("Hi Erik!"))
+		w.Write([]byte("Hi Erik!"))
 		})
 
 	// print a diagnostic message and start the server
