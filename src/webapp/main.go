@@ -21,6 +21,10 @@ func main() {
 	http.HandleFunc("/public/", handleFile)
 	http.HandleFunc("/data/", handleData)
 
+	http.HandleFunc("/JoshWolper/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hi Josh!"))
+	})
+
 	// print a diagnostic message and start the server
 	log.Println("Server running on port " + cfg.AppPort)
 	http.ListenAndServe(":"+cfg.AppPort, nil)
