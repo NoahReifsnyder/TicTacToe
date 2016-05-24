@@ -20,6 +20,9 @@ func main() {
 	// set up a few routes
 	http.HandleFunc("/public/", handleFile)
 	http.HandleFunc("/data/", handleData)
+	http.HandleFunc("/erik", func(w http.ResponseWriter, r * http.Request) {
+		w.Write([]byte("Hi Erik!"))
+		})
 
 	http.HandleFunc("/JoshWolper/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Hi Josh!"))
