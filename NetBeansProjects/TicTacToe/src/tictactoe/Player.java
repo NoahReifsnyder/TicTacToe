@@ -29,7 +29,7 @@ public class Player {
         }
         return p2;
     }
-    public String getTurn(){
+    public static String getTurn(){
         if (turn){
             return "O";
         }else{
