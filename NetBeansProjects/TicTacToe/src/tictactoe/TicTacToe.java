@@ -17,7 +17,7 @@ public class TicTacToe {
     public static void main(String[] args) {
         Player p1=Player.getP1();
         Player p2=Player.getP2();
-        
+        new BoardGUI();
     }
     
 }
