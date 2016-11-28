@@ -18,7 +18,7 @@ public class Board {
             board[i]=0;
         }
     }
-    public Board getInstance(){
+    public static Board getInstance(){
         if(b==null){
             b=new Board();
         }
@@ -27,7 +27,7 @@ public class Board {
     public int[] getBoard(){
         return board;
     }
-    public void updateBoard(int[] a){
-        board=a;
+    public void updateBoard(int a, int b){
+        board[a]=b;
     }
 }
