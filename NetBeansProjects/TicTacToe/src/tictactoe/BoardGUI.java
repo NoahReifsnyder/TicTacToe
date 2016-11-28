@@ -17,9 +17,6 @@ public class BoardGUI extends javax.swing.JFrame {
      */
     public BoardGUI() {
         initComponents();
-        ImagePanel panel = new ImagePanel(new ImageIcon("").getImage());
-        getContentPane().add(panel);
-        pack();
         setVisible(true);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2); //centers frame on screen
@@ -259,28 +256,4 @@ private void runTurn(JButton x, int loc) {
     private javax.swing.JButton spot8;
     private javax.swing.JButton spot9;
     // End of variables declaration//GEN-END:variables
-}
-
-class ImagePanel extends JPanel {
-
-  private Image img;
-
-  public ImagePanel(String img) {
-    this(new ImageIcon(img).getImage());
-  }
-
-  public ImagePanel(Image img) {
-    this.img = img;
-    Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
-    setPreferredSize(size);
-    setMinimumSize(size);
-    setMaximumSize(size);
-    setSize(size);
-    setLayout(null);
-  }
-
-  public void paintComponent(Graphics g) {
-    g.drawImage(img, 0, 0, null);
-  }
-
 }
