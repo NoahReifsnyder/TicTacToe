@@ -12,7 +12,7 @@ package tictactoe;
  */
 public class Board {
     private static Board b=null;
-    int[] board;
+    private int[] board;
     private Board(){
         for(int i=0; i<9;i++){
             board[i]=0;
@@ -23,5 +23,11 @@ public class Board {
             b=new Board();
         }
         return b;
+    }
+    public int[] getBoard(){
+        return board;
+    }
+    public void updateBoard(int[] a){
+        board=a;
     }
 }
