@@ -12,24 +12,32 @@ package tictactoe;
 public class Player {
     private static Player p1=null;
     private static Player p2=null;
-    private boolean num;
+    public boolean num;
     private static boolean turn=false;
     private Player(boolean i){
         num=i;
     }
-    public Player getP1(){
+    public static Player getP1(){
         if (p1==null){
             p1=new Player(false);
         }
         return p1;
     }
-    public Player getP2(){
+    public static Player getP2(){
         if (p2==null){
             p2=new Player(true);
         }
         return p2;
     }
+    public String getTurn(){
+        if (turn){
+            return "O";
+        }else{
+            return "X";
+        }
+    }
     public void move(int a){
+        boolean moved=false;
         if (turn==this.num){
             if(Board.getInstance().getBoard()[a]==0){
                 if(num){
@@ -37,12 +45,15 @@ public class Player {
                 }else{
                     Board.getInstance().updateBoard(a,2);//player two takes spot a
                 }
+                moved=true;
             }else{
                 //spot is filled
             }
         }else{
             //Not your turn
         }
-        turn=!turn;
+        if (moved){
+            turn=!turn;
+        }
     }
 }

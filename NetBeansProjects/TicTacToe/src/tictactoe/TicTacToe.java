@@ -15,7 +15,9 @@ public class TicTacToe {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player p1=Player.getP1();
+        Player p2=Player.getP2();
+        
     }
     
 }
