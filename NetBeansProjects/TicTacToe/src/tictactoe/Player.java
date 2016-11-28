@@ -29,21 +29,21 @@ public class Player {
         }
         return p2;
     }
-    public static String getTurn(){
+    public static int getTurn(){
         if (turn){
-            return "O";
+            return 2;
         }else{
-            return "X";
+            return 1;
         }
     }
-    public void move(int a){
+    private void move(int a){
         boolean moved=false;
         if (turn==this.num){
             if(Board.getInstance().getBoard()[a]==0){
                 if(num){
-                    Board.getInstance().updateBoard(a,1);//player one takes spot a
+                    Board.getInstance().updateBoard(a);//player one takes spot a
                 }else{
-                    Board.getInstance().updateBoard(a,2);//player two takes spot a
+                    Board.getInstance().updateBoard(a);//player two takes spot a
                 }
                 moved=true;
             }else{
@@ -55,5 +55,8 @@ public class Player {
         if (moved){
             turn=!turn;
         }
+    }
+    public void takeTurn(){
+        
     }
 }

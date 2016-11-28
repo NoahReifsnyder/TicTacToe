@@ -27,7 +27,8 @@ public class Board {
     public int[] getBoard(){
         return board;
     }
-    public void updateBoard(int a, int b){
+    public void updateBoard(int a){
+        int b=Player.getTurn();
         board[a]=b;
     }
     public boolean checkWin(Player p){
