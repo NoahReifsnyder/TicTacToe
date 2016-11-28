@@ -11,7 +11,7 @@ import java.awt.event.*;/**
  * @author milesnecker
  */
 public class BoardGUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form NewJFrame
      */
@@ -48,6 +48,7 @@ public class BoardGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
 
+        spot1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot1.setSize(new java.awt.Dimension(195, 195));
         spot1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +56,7 @@ public class BoardGUI extends javax.swing.JFrame {
             }
         });
 
+        spot7.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot7.setSize(new java.awt.Dimension(195, 195));
         spot7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,12 +64,14 @@ public class BoardGUI extends javax.swing.JFrame {
             }
         });
 
+        spot2.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spot2ActionPerformed(evt);
             }
         });
 
+        spot4.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot4.setSize(new java.awt.Dimension(195, 195));
         spot4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,12 +79,14 @@ public class BoardGUI extends javax.swing.JFrame {
             }
         });
 
+        spot8.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spot8ActionPerformed(evt);
             }
         });
 
+        spot3.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot3.setToolTipText("");
         spot3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,18 +94,21 @@ public class BoardGUI extends javax.swing.JFrame {
             }
         });
 
+        spot5.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spot5ActionPerformed(evt);
             }
         });
 
+        spot6.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spot6ActionPerformed(evt);
             }
         });
 
+        spot9.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         spot9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spot9ActionPerformed(evt);
@@ -158,48 +167,39 @@ public class BoardGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void spot8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot8ActionPerformed
-        runTurn(8);
-        spot8.setEnabled(false);
+        runTurn(spot8, 7);
     }//GEN-LAST:event_spot8ActionPerformed
 
     private void spot3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot3ActionPerformed
-        runTurn(3);
-        spot3.setEnabled(false);
+        runTurn(spot3, 2);
     }//GEN-LAST:event_spot3ActionPerformed
 
     private void spot6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot6ActionPerformed
-        runTurn(6);
-        spot6.setEnabled(false);
+        runTurn(spot6, 5);
     }//GEN-LAST:event_spot6ActionPerformed
 
     private void spot9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot9ActionPerformed
-        runTurn(9);
-        spot9.setEnabled(false);
+        runTurn(spot9, 8);
     }//GEN-LAST:event_spot9ActionPerformed
 
     private void spot2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot2ActionPerformed
-        runTurn(2);
-        spot2.setEnabled(false);
+        runTurn(spot2, 1);
     }//GEN-LAST:event_spot2ActionPerformed
 
     private void spot1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot1ActionPerformed
-        runTurn(1);
-        spot1.setEnabled(false);
+        runTurn(spot1, 0);
     }//GEN-LAST:event_spot1ActionPerformed
 
     private void spot4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot4ActionPerformed
-        runTurn(4);
-        spot4.setEnabled(false);
+        runTurn(spot4, 3);
     }//GEN-LAST:event_spot4ActionPerformed
 
     private void spot5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot5ActionPerformed
-        runTurn(5);
-        spot5.setEnabled(false);
+        runTurn(spot5, 4);
     }//GEN-LAST:event_spot5ActionPerformed
 
     private void spot7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spot7ActionPerformed
-        runTurn(7);
-        spot7.setEnabled(false);
+        runTurn(spot7, 6);
     }//GEN-LAST:event_spot7ActionPerformed
 
     /**
@@ -237,8 +237,16 @@ public class BoardGUI extends javax.swing.JFrame {
             }
         });
     }
-private void runTurn(int place) {
-    
+private void runTurn(JButton x, int loc) {
+    x.setEnabled(false);
+    if(Player.getTurn() == 1) {
+        x.setText("X");
+    }
+    else {
+        x.setText("O");
+    }
+    Board b = Board.getInstance();
+    b.updateBoard(loc);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton spot1;
